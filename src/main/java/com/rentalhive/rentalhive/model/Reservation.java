@@ -12,13 +12,13 @@ public class Reservation {
 
     private Date end_date;
     private Date start_date;
-    @Column(name = "id_equipment")
-     @ManyToOne
+    @ManyToOne
+    @JoinColumn(name = "id_equipment")
+
     private Equipment equipment;
 
-    @Column(name = "id_client")
     @ManyToOne
-
+    @JoinColumn(name = "client_id")
     private User client;
 
     public Date getEnd_date() {

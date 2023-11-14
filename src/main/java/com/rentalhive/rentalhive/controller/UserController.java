@@ -16,8 +16,12 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+//    public List<User> getAllUsers() {
+//
+//        return userService.getAllUsers();
+//    }
+    public String helloSpring(){
+        return "hi , I'm Spring Boot";
     }
 
     @GetMapping("/{id}")
