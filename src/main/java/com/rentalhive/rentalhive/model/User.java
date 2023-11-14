@@ -3,7 +3,7 @@ package com.rentalhive.rentalhive.model;
 
 
 import javax.persistence.*;
-
+@Table(name = "users")
 @Entity
 public class User {
     @Id
