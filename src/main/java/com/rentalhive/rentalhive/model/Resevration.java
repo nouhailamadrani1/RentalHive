@@ -14,7 +14,7 @@ public class Resevration {
     @Column(name = "id_client")
     @ManyToOne
 
-    private Client client;
+    private User client;
 
     public Long getId() {
         return id;
@@ -32,11 +32,11 @@ public class Resevration {
         this.equipment = equipment;
     }
 
-    public Client getClient() {
+    public User getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(User client) {
         this.client = client;
     }
 }
