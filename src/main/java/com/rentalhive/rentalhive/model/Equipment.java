@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Equipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String name;
     private int quantity;
     private EquipmentStatus status;
@@ -20,11 +20,11 @@ public class Equipment {
         this.quantity = quantity;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
