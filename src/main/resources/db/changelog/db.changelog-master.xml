@@ -25,9 +25,7 @@
             <column name="status" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
-    <changeSet id="14-11-2023-13-03" author="nouhaila">
-        <dropTable tableName="reservations" cascadeConstraints="true"/>
-    </changeSet>
+
 
     <changeSet id="14-11-2023-13-04" author="nouhaila">
         <createTable tableName="reservations">
