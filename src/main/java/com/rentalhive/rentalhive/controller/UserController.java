@@ -17,12 +17,8 @@ public class UserController {
 
     @GetMapping
     public List<User> getAllUsers() {
-
         return userService.getAllUsers();
     }
-//    public String helloSpring(){
-//        return "hi , I'm Spring Boot";
-//    }
 
     @GetMapping("/{id}")
     public Optional<User> getUserById(@PathVariable int id) {
