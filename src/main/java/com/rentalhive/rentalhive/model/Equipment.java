@@ -12,6 +12,16 @@ public class Equipment {
     private String name;
     private int quantity;
     private EquipmentStatus status;
+    private Double price;
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public int getQuantity() {
         return quantity;
     }
