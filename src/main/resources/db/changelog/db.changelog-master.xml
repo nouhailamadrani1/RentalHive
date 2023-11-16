@@ -58,4 +58,41 @@
                 onDelete="CASCADE"
                 onUpdate="CASCADE"/>
     </changeSet>
+
+    <changeSet  author="Jamal"  id="renameColumn">
+        <dropForeignKeyConstraint baseTableName="reservations"
+                                  baseColumnNames="id_client"
+                                  constraintName="fk_reservation_user"/>
+        <renameColumn
+                       columnDataType="BIGINT"
+                       newColumnName="client_id"
+                       oldColumnName="id_client"
+                       remarks="renameColumn"
+                       tableName="reservations"/>
+        <addForeignKeyConstraint
+                baseTableName="reservations"
+                baseColumnNames="client_id"
+                constraintName="fk_reservation_user"
+                referencedTableName="users"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+                onUpdate="CASCADE"/>
+    </changeSet>
+
+    <changeSet author="Jamal" id="addAutoIncrement">
+        <addAutoIncrement
+                          columnDataType="BIGINT"
+                          columnName="id"
+                          defaultOnNull="true"
+                          generationType="Default"
+                          tableName="reservations"/>
+    </changeSet>
+
+    <changeSet id="edit_is_admin_column" author="Jamal">
+        <renameColumn
+                tableName="users"
+                columnDataType="BOOLEAN"
+                oldColumnName="isAdmin"
+                newColumnName="is_admin"/>
+    </changeSet>
 </databaseChangeLog>

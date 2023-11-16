@@ -10,6 +10,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
+    @Column(name = "is_admin")
     private boolean isAdmin;
 
     public boolean isAdmin() {
