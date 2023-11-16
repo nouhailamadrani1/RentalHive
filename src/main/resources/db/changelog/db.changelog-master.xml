@@ -14,7 +14,9 @@
             <column name="isAdmin" type="BOOLEAN"/>
         </createTable>
     </changeSet>
-
+<!--    <changeSet id="14-11-2023-11-53" author="nouhaila">-->
+<!--        <dropTable tableName="equipments"/>-->
+<!--    </changeSet>-->
     <changeSet id="14-11-2023-11-53" author="nouhaila">
         <createTable tableName="equipments">
             <column name="id" type="BIGINT">
@@ -57,5 +59,10 @@
                 referencedColumnNames="id"
                 onDelete="CASCADE"
                 onUpdate="CASCADE"/>
+    </changeSet>
+    <changeSet id="16-11-2023-11-11" author="nouhaila">
+        <addColumn tableName="equipments">
+            <column name="price" type="DOUBLE"/>
+        </addColumn>
     </changeSet>
 </databaseChangeLog>
