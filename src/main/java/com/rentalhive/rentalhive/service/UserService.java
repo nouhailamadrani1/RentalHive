@@ -33,7 +33,10 @@ public class UserService {
 
     public User updateUser(User user) {
 
-        return userRepository.save(user);
+        if(user.getName()!= null && user.getName()!= null ){
+            return userRepository.save(user);
+        }
+        else return null;
     }
 
     public void deleteUser(int id) {
