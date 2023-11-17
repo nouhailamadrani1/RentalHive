@@ -7,4 +7,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EquipmentRepository extends CrudRepository<Equipment,Integer> {
+
+    public Equipment findByName(String name);
+
+
 }

@@ -35,4 +35,9 @@ public class EquipmentService {
     public void deleteEquipment(int id) {
         equipmentRepository.deleteById(id);
     }
+
+    public Equipment getEquipmentByName(String name) {
+        return equipmentRepository.findByName(name);
+    }
+
 }

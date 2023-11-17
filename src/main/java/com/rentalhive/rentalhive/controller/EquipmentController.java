@@ -40,4 +40,9 @@ public class EquipmentController {
     public void deleteEquipment(@PathVariable int id) {
         equipmentService.deleteEquipment(id);
     }
+
+    @GetMapping("/E-name/{name}")
+    public Equipment getEquipmentByName(@PathVariable String name) {
+        return equipmentService.getEquipmentByName(name);
+    }
 }

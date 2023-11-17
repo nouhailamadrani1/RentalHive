@@ -1,6 +1,7 @@
 package com.rentalhive.rentalhive.service;
 
 import com.rentalhive.rentalhive.model.Equipment;
+import com.rentalhive.rentalhive.model.EquipmentStatus;
 import com.rentalhive.rentalhive.repository.EquipmentRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,8 +44,10 @@ class EquipmentServiceTest {
     @Test
     public void testAddEquipment() {
         Equipment newEquipment = new Equipment();
-        newEquipment.setName("New Equipment");
+        newEquipment.setName("New Equipment Test");
         newEquipment.setQuantity(10);
+        newEquipment.setPrice(200.0);
+        newEquipment.setStatus(EquipmentStatus.AVAILABLE);
 
         Equipment addedEquipment = equipmentService.addEquipment(newEquipment);
 
@@ -54,7 +57,7 @@ class EquipmentServiceTest {
         // Verify that the equipment is in the database
         Optional<Equipment> retrievedEquipment = equipmentRepository.findById(addedEquipment.getId());
         assertTrue(retrievedEquipment.isPresent());
-        assertEquals("New Equipment", retrievedEquipment.get().getName());
+        assertEquals("New Equipment Test", retrievedEquipment.get().getName());
     }
 
     @Test
