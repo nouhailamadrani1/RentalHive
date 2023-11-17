@@ -44,7 +44,7 @@ class EquipmentServiceTest {
     @Test
     public void testAddEquipment() {
         Equipment newEquipment = new Equipment();
-        newEquipment.setName("New Equipment Test");
+        newEquipment.setName("Equipment AddTest");
         newEquipment.setQuantity(10);
         newEquipment.setPrice(200.0);
         newEquipment.setStatus(EquipmentStatus.AVAILABLE);
@@ -62,19 +62,26 @@ class EquipmentServiceTest {
 
     @Test
     public void testUpdateEquipment() {
-        // Assuming there is an equipment with ID 1 in the database
-        Equipment existingEquipment = equipmentRepository.findById(1).orElseThrow();
+        // Insert a new equipment into the database
+        Equipment newEquipment = new Equipment();
+        newEquipment.setName("Equipment UpdateTest");
+        newEquipment.setQuantity(10);
+        newEquipment.setStatus(EquipmentStatus.AVAILABLE);
+        newEquipment.setPrice(88.0);
+        Equipment addedEquipment = equipmentService.addEquipment(newEquipment);
+
+        // Search for the equipment by EquipmentName
+        Equipment foundEquipment = equipmentService.getEquipmentByName("Equipment UpdateTest");
 
         // Update the quantity
-        existingEquipment.setQuantity(20);
-
-        Equipment updatedEquipment = equipmentService.updateEquipment(1, existingEquipment);
+        foundEquipment.setQuantity(20);
+        Equipment updatedEquipment = equipmentService.updateEquipment(foundEquipment.getId(), foundEquipment);
 
         assertNotNull(updatedEquipment);
         assertEquals(20, updatedEquipment.getQuantity());
     }
 
-    @Test
+    @Test //this test will try to delete an equipment with id 1
     public void testDeleteEquipment() {
         // Assuming there is an equipment with ID 1 in the database
         equipmentService.deleteEquipment(1);
@@ -82,5 +89,22 @@ class EquipmentServiceTest {
         // Verify that the equipment is no longer in the database
         Optional<Equipment> deletedEquipment = equipmentRepository.findById(1);
         assertTrue(deletedEquipment.isEmpty());
+    }
+
+    @Test //this test will insert to db an equipment and search for it by name
+    public void testGetEquipmentByName() {
+        // Assuming there is an equipment with the name "Sample Equipment" in the database
+        Equipment sampleEquipment = new Equipment();
+        sampleEquipment.setName("Sample Equipment");
+        sampleEquipment.setQuantity(5);
+        sampleEquipment.setStatus(EquipmentStatus.AVAILABLE);
+        sampleEquipment.setPrice(100.0);
+        equipmentRepository.save(sampleEquipment);
+
+        // Perform the test
+        Equipment foundEquipment = equipmentService.getEquipmentByName("Sample Equipment");
+
+        assertNotNull(foundEquipment);
+        assertEquals("Sample Equipment", foundEquipment.getName());
     }
 }
