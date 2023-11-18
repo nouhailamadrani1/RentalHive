@@ -97,6 +97,7 @@
                 columnDataType="BOOLEAN"
                 oldColumnName="isAdmin"
                 newColumnName="is_admin"/>
+    </changeSet>
 
     <changeSet id="16-11-2023-11-11" author="nouhaila">
         <addColumn tableName="equipments">
