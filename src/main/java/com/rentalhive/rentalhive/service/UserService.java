@@ -23,12 +23,20 @@ public class UserService {
     }
 
     public User addUser(User user) {
-        return userRepository.save(user);
-    }
 
-    public User updateUser(int id, User user) {
-        user.setId(id);
-        return userRepository.save(user);
+            if(user.getName()!= null && user.getName()!= null ){
+                return userRepository.save(user);
+            }
+            else return null;
+
+        }
+
+    public User updateUser(User user) {
+
+        if(user.getName()!= null && user.getName()!= null ){
+            return userRepository.save(user);
+        }
+        else return null;
     }
 
     public void deleteUser(int id) {
