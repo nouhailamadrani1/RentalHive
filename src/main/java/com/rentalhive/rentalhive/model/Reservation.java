@@ -14,7 +14,6 @@ public class Reservation {
     private Date start_date;
     @ManyToOne
     @JoinColumn(name = "id_equipment")
-
     private Equipment equipment;
 
     @ManyToOne
@@ -59,5 +58,16 @@ public class Reservation {
 
     public void setClient(User client) {
         this.client = client;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{\n" +
+                "\"id\"=" + id + "\n" +
+                ", \"end_date\"=" + end_date + "\n" +
+                ", \"start_date\"=" + start_date + "\n" +
+                ", \"equipment\"=" + equipment + "\n" +
+                ", \"client\"=" + client + "\n" +
+                '}';
     }
 }

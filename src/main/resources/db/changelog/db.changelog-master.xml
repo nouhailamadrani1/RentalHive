@@ -102,12 +102,14 @@
     </changeSet>
 
     <changeSet id="edit_is_admin_column" author="Jamal">
+
     <renameColumn
             tableName="users"
             columnDataType="BOOLEAN"
             oldColumnName="isAdmin"
             newColumnName="is_admin"/>
     </changeSet>
+
     <changeSet id="16-11-2023-11-11" author="nouhaila">
         <addColumn tableName="equipments">
             <column name="price" type="DOUBLE"/>
